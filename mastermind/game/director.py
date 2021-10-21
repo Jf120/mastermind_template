@@ -52,7 +52,7 @@ class Director:
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
-        that means getting the move from the current player.
+        that means getting the guess from the current player.
 
         Args:
             self (Director): An instance of Director.
@@ -70,7 +70,7 @@ class Director:
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
-        this case, that means updating the board with the current move.
+        this case, that means updating hints with the current guess.
 
         Args:
             self (Director): An instance of Director.
