@@ -14,7 +14,7 @@ class Player:
         self._name = name
     
     def get_guess(self):
-        """Returns the player's last number guesses (an instance of Move). If the player 
+        """Returns the player's last number guesses (an instance of Guess). If the player 
         hasn't guessed yet this method returns None.
 
         Args:
@@ -31,7 +31,7 @@ class Player:
         return self._name
 
     def set_guess(self, guess):
-        """Sets the player's last move to the given instance of Move.
+        """Sets the player's last move to the given instance of Guess.
 
         Args:
             self (Player): an instance of Player.
