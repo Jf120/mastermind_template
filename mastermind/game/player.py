@@ -1,15 +1,18 @@
 class Player:
-    
     """A person taking part in a game. The responsibility of Player is to keep track of their identity and last guess.
     
     Stereotype: 
         Information Holder
 
     Attributes:
-    
     """
     
     def __init__(self, name):
+        """The class constructor.
+        
+        Args:
+            self (Player): an instance of Player.
+        """
         self._guess = None
         self._name = name
     
@@ -31,7 +34,7 @@ class Player:
         return self._name
 
     def set_guess(self, guess):
-        """Sets the player's last move to the given instance of Guess.
+        """Sets the player's last guess to the given instance of Guess.
 
         Args:
             self (Player): an instance of Player.

@@ -1,5 +1,5 @@
 class Guess:
-    """A maneuver in the game. The responsibility of Move is to keep track of the player's last guess.
+    """A guess made by the user. The responsibility of Guess is to keep track of the player's last guess.
     
     Stereotype: 
         Information Holder
