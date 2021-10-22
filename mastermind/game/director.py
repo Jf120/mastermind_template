@@ -51,7 +51,7 @@ class Director:
             self._code.prepare(player)
         self._console.write(
 """\nRules of the game:
-1. A code is randomly generated for each player. Ex: '1234'
+1. A code is randomly generated for each player. Ex: '1a3g'
 2. On your turn, enter a guess into the console.
 3. First player to correctly guess their code wins.
 """
@@ -70,8 +70,8 @@ class Director:
         # gets next player's guess
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn: ")
-        number = self._console.read_number("What is your guess? ")
-        guess = Guess(number)
+        user_code = self._console.read("What is your guess? ")
+        guess = Guess(user_code)
         player.set_guess(guess)
         
 

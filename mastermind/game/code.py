@@ -23,7 +23,8 @@ class Code:
             player (Player): The player object to get info.
         """
         name = player.get_name()
-        code = str(random.randint(1000, 10000))
+        code_choices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        code = str(random.sample(code_choices, 4))
         guess = "----"
         hint = "****"
         self._items[name] = [code, guess, hint]
