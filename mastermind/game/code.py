@@ -30,7 +30,7 @@ class Code:
             if chooser == 0:
                 letter = random.choice(string.ascii_lowercase)
                 code.append(letter)
-            elif chooser == 1:
+            else:
                 number = random.randint(0,9)
                 code.append(number)
         code = str(code)
