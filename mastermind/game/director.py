@@ -49,6 +49,13 @@ class Director:
             player = Player(name)
             self._roster.add_player(player)
             self._code.prepare(player)
+        self._console.write(
+"""\nRules of the game:
+1. A code is randomly generated for each player. Ex: '1234'
+2. On your turn, enter a guess into the console.
+3. First player to correctly guess their code wins.
+"""
+        )
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -89,7 +96,7 @@ class Director:
         if self._code.guessed_correctly(self._roster.get_current()):
             winner = self._roster.get_current()
             name = winner.get_name()
-            print(f"\n{name} won!")
+            print(f"\nCongrats {name}! You won fair and square!")
             self._keep_playing = False
         self._roster.next_player()
 

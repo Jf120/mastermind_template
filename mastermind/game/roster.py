@@ -14,7 +14,7 @@ class Roster:
         Args:
             self (Roster): an instance of Roster.
         """
-        self.current = -1
+        self.current = 0
         self.players = []
         
     def add_player(self, player):
