@@ -35,3 +35,4 @@ root                    (project root folder)
 ## Authors
 ---
 * Jorge Flores - jafc120@gmail.com
+* Reece Mickelson - mmickelson108@gmail.com
