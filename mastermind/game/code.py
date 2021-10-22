@@ -1,4 +1,5 @@
 import random
+import string
 
 class Code:
     """Keep track of players guesses, codes, and info. 
@@ -23,8 +24,16 @@ class Code:
             player (Player): The player object to get info.
         """
         name = player.get_name()
-        code_choices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-        code = str(random.sample(code_choices, 4))
+        code = []
+        for i in range(0, 4):
+            chooser = random.randint(0,1)
+            if chooser == 0:
+                letter = random.choice(string.ascii_lowercase)
+                code.append(letter)
+            elif chooser == 1:
+                number = random.randint(0,9)
+                code.append(number)
+        code = str(code)
         guess = "----"
         hint = "****"
         self._items[name] = [code, guess, hint]
