@@ -49,13 +49,7 @@ class Director:
             player = Player(name)
             self._roster.add_player(player)
             self._code.prepare(player)
-        self._console.write(
-"""\nRules of the game:
-1. A code is randomly generated for each player. Ex: '1a3g'
-2. On your turn, enter a guess into the console.
-3. First player to correctly guess their code wins.
-"""
-        )
+        self._console.write("""\nRules of the game:\n 1. A code is randomly generated for each player. Ex: '1a3g'\n 2. On your turn, enter a guess into the console.\n 3. First player to correctly guess their code wins.""")
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -67,10 +61,14 @@ class Director:
         # display the players and guesses
         guesses = self._code.to_string()
         self._console.write(guesses)
-        # gets next player's guess
+        # gets next player's guess and makes sure player only enter 4 characters
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn: ")
         user_code = self._console.read("What is your guess? ")
+        while len(user_code) != 4:
+            self._console.write("\nInsert only 4 characters, please.")
+            user_code = self._console.read("What is your guess? ")
+
         guess = Guess(user_code)
         player.set_guess(guess)
         
