@@ -3,6 +3,7 @@ from game.player import Player
 from game.roster import Roster
 from game.code import Code
 from game.guess import Guess
+from game.style import bcolors
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -46,7 +47,7 @@ class Director:
         """
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
-            player = Player(name)
+            player = Player(f"{bcolors.BOLD}{name}{bcolors.ENDC}")
             self._roster.add_player(player)
             self._code.prepare(player)
         self._console.write("""\nRules of the game:\n 1. A code is randomly generated for each player. Ex: '1a3g'\n 2. On your turn, enter a guess into the console.\n 3. First player to correctly guess their code wins.""")

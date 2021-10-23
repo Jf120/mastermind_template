@@ -1,5 +1,6 @@
 import random
 import string
+from game.style import bcolors
 
 class Code:
     """Keep track of players guesses, codes, and info. 
@@ -35,7 +36,7 @@ class Code:
                 code += str(number)
         
         guess = "----"
-        hint = "****"
+        hint = f"{bcolors.RED}****{bcolors.ENDC}"
         self._items[name] = [code, guess, hint]
 
     def to_string(self):
@@ -70,11 +71,11 @@ class Code:
         hint = ""
         for index, letter in enumerate(str(number)):
             if code[index] == letter:
-                hint += "x"
+                hint += f"{bcolors.GREEN}x{bcolors.ENDC}"
             elif letter in code:
-                hint += "o"
+                hint += f"{bcolors.BLUE}o{bcolors.ENDC}"
             else:
-                hint += "*"
+                hint += f"{bcolors.RED}*{bcolors.ENDC}"
         return hint
     
     def apply(self, guess, player):
@@ -101,7 +102,8 @@ class Code:
         """
         name = player.get_name()
         values = self._items[name]
-        if values[2] == "xxxx":
+        x = f"{bcolors.GREEN}x{bcolors.ENDC}"
+        if values[2] == f"{x*4}":
             return True 
         else:
             return False 
