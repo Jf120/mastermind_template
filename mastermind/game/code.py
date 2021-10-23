@@ -1,4 +1,5 @@
 import random
+import string
 
 class Code:
     """Keep track of players guesses, codes, and info. 
@@ -8,17 +9,31 @@ class Code:
     """
     
     def __init__(self):
+        """The class constructor.
+        
+        Args:
+            self (Code): an instance of Code.
+        """
         self._items = {}
     
     def prepare(self, player):
         """Sets up the board with an entry for each player.
         
         Args:
-            self (code): an instance of Code.
+            self (Code): an instance of Code.
             player (Player): The player object to get info.
         """
         name = player.get_name()
-        code = str(random.randint(1000, 10000))
+        code = ""
+        for i in range(4):
+            chooser = random.randint(0,1)
+            if chooser == 0:
+                letter = random.choice(string.ascii_lowercase)
+                code += letter 
+            else:
+                number = random.randint(0,9)
+                code += str(number)
+        
         guess = "----"
         hint = "****"
         self._items[name] = [code, guess, hint]
@@ -27,7 +42,7 @@ class Code:
         """Converts the guesses of each player into a string.
         
         Args:
-            self (code): an instance of Code.
+            self (Code): an instance of Code.
         """
         
         string = "\n"
@@ -66,7 +81,7 @@ class Code:
         """Saves the guess of each user and gives a hint based on it.
         
         Args:
-            self (code): an instance of Code.
+            self (Code): an instance of Code.
             gues (Guess): The guess object of each player.
             player (Player): An instance of Player, for player information.
         """
@@ -81,7 +96,7 @@ class Code:
         """Checks if the player guessed the number.
         
         Args:
-            self (code): an instance of Code.
+            self (Code): an instance of Code.
             player (Player): An instance of Player, for player information.
         """
         name = player.get_name()
