@@ -24,16 +24,16 @@ class Code:
             player (Player): The player object to get info.
         """
         name = player.get_name()
-        code = []
-        for i in range(0, 4):
+        code = ""
+        for i in range(4):
             chooser = random.randint(0,1)
             if chooser == 0:
                 letter = random.choice(string.ascii_lowercase)
-                code.append(letter)
+                code += letter 
             else:
                 number = random.randint(0,9)
-                code.append(number)
-        code = str(code)
+                code += str(number)
+        
         guess = "----"
         hint = "****"
         self._items[name] = [code, guess, hint]
