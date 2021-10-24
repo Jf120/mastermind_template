@@ -36,3 +36,4 @@ root                    (project root folder)
 ---
 * Jorge Flores - jafc120@gmail.com
 * Reece Mickelson - mmickelson108@gmail.com
+* Coty Fivecoat - Fiveoat@gmail.com
